@@ -1,3 +1,4 @@
+import propTypes from 'prop-types'
 import {TableHistory,
     TableHistoryThead,
     TableHistoryTheadTr,
@@ -27,4 +28,15 @@ export const TransactionHistory = ({items}) =>{
             </TableHistoryBody>
         </TableHistory>
     )
+}
+
+TransactionHistory.propTypes = {
+    items: propTypes.arrayOf(
+        propTypes.shape({
+            id: propTypes.string.isRequired,
+            type: propTypes.string.isRequired,
+            amount: propTypes.string.isRequired,
+            currency: propTypes.string.isRequired,
+        }).isRequired
+    ).isRequired,
 }

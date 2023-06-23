@@ -1,3 +1,4 @@
+import propTypes from 'prop-types'
 import {ProfileContainer, ProfileDescription, ProfileImage,ProfileLocation,ProfileName,ProfileTag,StatsList,StatsListItem,StatsLabel,StatsQuantity} from './Profile.styled.jsx'
 
 export const Profile = ({username,tag,location,avatar,stats}) => {
@@ -28,3 +29,12 @@ export const Profile = ({username,tag,location,avatar,stats}) => {
 }
 
 
+Profile.propTypes = {
+  username: propTypes.string.isRequired,
+  tag: propTypes.string.isRequired,
+  location: propTypes.string.isRequired,
+  avatar: propTypes.string.isRequired,
+  stats: propTypes.objectOf(
+    propTypes.oneOfType([propTypes.number]).isRequired
+  ).isRequired,
+};
