@@ -3,14 +3,9 @@ import {StatisticsContainer,StatisticsTitle,StatisticsList,StatisticsListItem,St
 
 export const Statistics = ({title,stats}) => {
     const reby = stats.map(object=><StatisticsListItem key={object.id}><StatisticsTextSpan>{object.label}</StatisticsTextSpan><StatisticsNumberSpan>{object.percentage}%</StatisticsNumberSpan></StatisticsListItem>)
-    return ((title === '')?
+    return (
     <StatisticsContainer>
-    <StatisticsList>
-        {reby}
-    </StatisticsList>
-    </StatisticsContainer>
-    :<StatisticsContainer>
-    <StatisticsTitle>{title}</StatisticsTitle>
+    {title && <StatisticsTitle>{title}</StatisticsTitle>}
     <StatisticsList>
         {reby}
     </StatisticsList>
